@@ -1,0 +1,109 @@
+@startuml
+
+abstract class AbstractEntity<E extends Serializable>{
+}
+
+class node9 as "figures/Bishop.ts" {
+   - Bishop: String;
+   -  Cell: String;
+   + Colors: String;
+   - Figure: Number;
+   + FigureNames: String;
+   - blackLogo: Object;
+   - whiteLogo: Object;
+}
+class node11 as "figures/Figure.ts" {
+   + getCell();
+   + getColors()
+   + Figure: Number;
+   - FigureNames: String;
+   - logo: Object;
+}
+class node15 as "figures/King.ts" {
+   + Cell: String;
+   - Colors: String;
+   + Figure: Number;
+   + FigureNames: String;
+   - King: String;
+   - blackLogo: Object;
+   - whiteLogo: Object;
+}
+class node10 as "figures/Knight.ts" {
+   + Cell: String;
+   + Colors: String;
+   - Figure: Number;
+   + getFigureNames;
+   + Knight: String;
+   - blackLogo: Object;
+   - whiteLogo: Object;
+}
+class node2 as "figures/Pawn.ts" {
+   + getCellCell()
+   + Colors: String;
+   + Figure: Number;
+   + FigureNames: String;
+   - Pawn: String;
+   + blackLogo: Object;
+   + whiteLogo: Object;
+}
+class node5 as "figures/Queen.ts" {
+   + getCell();
+   + Colors: String;
+   + Figure: Number;
+   + FigureNames: String;
+   - Queen: String;
+   + blackLogo: Object;
+   + whiteLogo: Object;
+}
+class node1 as "figures/Rook.ts" {
+   + getCell();
+   + Colors: String;
+   + Figure: Number;
+   + FigureNames: String;
+   - Rook: String;
+   + blackLogo: Object;
+   + whiteLogo: Object;
+}
+class node6 as "models/Board.ts" {
+   - Bishop: String;
+   + Board: String;
+   + GetCell();
+   + GetColors();
+   - Figure: Number;
+   - King: String;
+   - Knight: String;
+   - Pawn: String;
+   + Queen: String;
+   - Rook: String;
+}
+class node0 as "models/Cell.ts" {
+   - Board: String;
+   - Cell: String;
+   + setColors: String;
+   - setFigure: Number;
+}
+class node21 as "models/Colors.ts" {
+   + Colors: String;
+   + getColor();
+}
+class node8 as "models/Player.ts" {
+   + Colors: String;
+}
+interface Identifiable<E extends Serializable>{
+    + E getId();
+}
+
+node9   <--  node11
+node15  <--  node21
+node10  <--  node0
+node2   <--  node11
+node5   <--  node11
+node5   <--  node0
+node6   <--  node5
+node6   <--  node1
+node6   <--  node0
+node6   <--  node21
+node0   <--  node21
+node8   <--  node21
+node6   <-- Identifiable
+@enduml
